@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>jqy001</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<meta charset="utf-8"/>
+		<meta name="author" content="Bernardo Meyer">
+		<meta id="Res" name="description" content="Entendendo o jQuery.">
+		<meta name="keywords" content="sites, web, desenvolvimento, HTML5,objetos">
+		<script src="jquery-3.6.0.js"></script>
+		<style>
+			BODY {
+				font-family: Arial;
+				}
+		</style>
+		<script>
+			document.onreadystatechange = function () {
+				if (document.readyState === "complete") {
+					inicio();
+					}
+				}
+			function inicio(){
+				alert('Vou alterar os textos.');
+				var o1 = $("#Titulo");
+				var o2 = $("#Res");
+				var o3 = $("#subTitulo");
+				o1.text(o1.text() + " [" + $("title").text() + "]"); 
+				o3.text(o2.attr("content"));
+				}
+		</script>
+	</head>
+	<body>
+		<h1 id="Titulo">Título Principal</h1>
+		<h2 id="subTitulo">Resumo</h2>
+	</body>
+</html>
