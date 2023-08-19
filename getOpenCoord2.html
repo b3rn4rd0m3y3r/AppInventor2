@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>getCoord2</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<meta charset="UTF-8"/>
+		<meta name="author" content="Bernardo Meyer">
+		<meta name="description" content="Openstreetmaps API search JSON results">
+		<meta name="keywords" content="sites, web, desenvolvimento, HTML5">
+		<style>
+			BODY {
+				font-size: 28px;
+				}
+			LABEL {
+				color: maroon;
+				font-weight: bold;
+				text-align: left;
+				}
+		</style>
+		<script>
+			function init(){
+				window.AppInventor.setWebViewString("Inicio");
+				}
+			function getLatLon(txt){
+				var json = JSON.parse(txt);
+				var resp = json[0].lat+","+json[0].lon;
+				alert(resp);
+				window.AppInventor.setWebViewString(resp);
+				}
+			function muda(){
+				window.AppInventor.setWebViewString("Ola mundo");
+				}
+			function findAddress(endereco){
+				//init();
+				var ender = endereco.replace(" ","%20");
+				fetch("https://nominatim.openstreetmap.org/search?q=" + ender + "&format=json",
+				{
+					headers: {
+					  'Content-Type': 'application/json'
+					},
+					method: "GET"
+				})
+					.then(response=>response.json())
+					.then(data=>{ 
+						var resp = data[0].lat+","+data[0].lon;
+						var nodo = document.getElementById("App");
+						nodo.innerText = resp;
+						//document.write(resp);
+						//console.log(resp); 
+						window.AppInventor.setWebViewString(resp); 
+						})
+				.catch(function(res){ console.log(res) })				
+				}
+		</script>
+	</head>
+	<body id="App" onload="init();">
+
+	</body>
+</html>
