@@ -1,1 +1,9 @@
+INSTRUÇÕES:
 
+A aula explicou como executar a script pelo AI2 na raiz do IIS.
+Lembre-se de que é preciso instalar o PHP no IIS do seu desktop.
+
+Não se esqueça dos arquivos connection.php e connection_close.php
+Também não se esqueça de determinar o IP do seu desktop com o ipconfig.
+
+Boa sorte
